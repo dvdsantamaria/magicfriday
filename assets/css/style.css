@@ -7412,3 +7412,44 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+/* Fancybox video popup sizing and focus overrides */
+.fancybox__carousel .fancybox__slide.has-video .fancybox__content,
+.fancybox__carousel .fancybox__slide.has-html5video .fancybox__content {
+  width: 70vw !important;
+  max-width: 70vw !important;
+  height: auto !important;
+  max-height: 70vh !important;
+  padding: 0;
+}
+
+.fancybox__carousel .fancybox__slide {
+  padding: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fancybox__carousel .fancybox__slide::before,
+.fancybox__carousel .fancybox__slide::after {
+  display: none !important;
+}
+
+.fancybox__carousel .fancybox__slide.has-video .fancybox__html5video,
+.fancybox__carousel .fancybox__slide.has-html5video .fancybox__html5video {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.fancybox__content > .carousel__button.is-close {
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  color: #fff;
+}
+
+.fancybox__content :focus:not(.carousel__button.is-close) {
+  outline: none;
+  box-shadow: none;
+}
