@@ -4008,6 +4008,12 @@ a:hover, a:active {
 .work-hover-1 .dsn-item-post .box-image-bg {
   height: 80vh;
 }
+.dsn-item-post .cover-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: block;
+}
 .root-posts .pin-spacer {
   margin: 0 !important;
 }
