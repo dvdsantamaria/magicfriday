@@ -2949,6 +2949,10 @@ a:hover, a:active {
     align-items: center;
     text-align: center;
   }
+  .header-normal .box-content {
+    align-items: center;
+    text-align: center;
+  }
   .header-normal .description-inner div {
     order: 1;
   }
