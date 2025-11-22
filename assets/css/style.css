@@ -6326,10 +6326,7 @@ ul.intro-project-list li h5.title-list-project + p.description-list-project {
 }
 .dsn-brand .brand-item-inner img {
   margin: auto;
-}
-
-.v-dark .brand-item img {
-  filter: invert(1);
+  filter: brightness(0) saturate(100%) invert(1);
 }
 
 @media only screen and (max-width: 991px) {
