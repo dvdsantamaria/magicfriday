@@ -2982,11 +2982,15 @@ a:hover, a:active {
   }
 }
 @media only screen and (max-width: 767px) {
-  .header-normal .title-lg {
-    font-size: 90px;
-    line-height: 70px;
-    transform: none;
-  }
+.header-normal .title-lg {
+  font-size: 90px;
+  line-height: 70px;
+  transform: none;
+}
+.about-lead {
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+}
 }
 
 /* -------------------------------------------------------
