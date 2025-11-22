@@ -2946,7 +2946,8 @@ a:hover, a:active {
 @media only screen and (max-width: 991px) {
   .header-normal .description-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
   .header-normal .description-inner div {
     order: 1;
