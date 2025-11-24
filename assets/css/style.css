@@ -201,6 +201,13 @@ body::before {
   animation: grainMove 1s steps(8) infinite;
 }
 
+body.thank-page::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  animation: none !important;
+}
+
 @keyframes grainMove {
   0% {
     transform: translate(0, 0);
