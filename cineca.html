@@ -25,7 +25,7 @@
         .before-after-container {
             position: relative;
             width: 100%;
-            height: clamp(320px, 60vw, 620px);
+            height: clamp(220px, 30vw, 360px);
             margin: 0 auto;
             border-radius: 16px;
             overflow: hidden;
@@ -78,9 +78,41 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
         }
 
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 18px;
+            padding: 6px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            z-index: 5;
+            font-weight: 600;
+        }
+
+        .ba-label.ba-before {
+            left: 18px;
+        }
+
+        .ba-label.ba-after {
+            right: 18px;
+        }
+
         @media (max-width: 768px) {
             .before-after-container {
                 height: clamp(280px, 65vw, 480px);
+            }
+            .before-after-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -585,14 +617,46 @@
                             <span class="sm-title-block text-upper">Before / After</span>
                             <h3 class="title-block text-upper">Instant film look test</h3>
                         </div>
-                        <div class="before-after-container" data-before-after>
-                            <img class="img-after" src="assets/img/after.jpg" alt="Después con CINECA LUT">
-
-                            <div class="img-before">
-                                <img src="assets/img/before.jpg" alt="Antes sin LUT">
+                        <div class="before-after-grid mt-30">
+                            <div class="before-after-container" data-before-after>
+                                <span class="ba-label ba-before">Before</span>
+                                <span class="ba-label ba-after">After</span>
+                                <img class="img-after" src="beforeafter/images/after.jpg" alt="Después con CINECA LUT">
+                                <div class="img-before">
+                                    <img src="beforeafter/images/before.jpg" alt="Antes sin LUT">
+                                </div>
+                                <div class="slider" data-ba-handle></div>
                             </div>
 
-                            <div class="slider" data-ba-handle></div>
+                            <div class="before-after-container" data-before-after>
+                                <span class="ba-label ba-before">Before</span>
+                                <span class="ba-label ba-after">After</span>
+                                <img class="img-after" src="beforeafter/images/after2.jpg" alt="Después con CINECA LUT">
+                                <div class="img-before">
+                                    <img src="beforeafter/images/before2.jpg" alt="Antes sin LUT">
+                                </div>
+                                <div class="slider" data-ba-handle></div>
+                            </div>
+
+                            <div class="before-after-container" data-before-after>
+                                <span class="ba-label ba-before">Before</span>
+                                <span class="ba-label ba-after">After</span>
+                                <img class="img-after" src="beforeafter/images/after3.jpg" alt="Después con CINECA LUT">
+                                <div class="img-before">
+                                    <img src="beforeafter/images/before3.jpg" alt="Antes sin LUT">
+                                </div>
+                                <div class="slider" data-ba-handle></div>
+                            </div>
+
+                            <div class="before-after-container" data-before-after>
+                                <span class="ba-label ba-before">Before</span>
+                                <span class="ba-label ba-after">After</span>
+                                <img class="img-after" src="beforeafter/images/after4.jpg" alt="Después con CINECA LUT">
+                                <div class="img-before">
+                                    <img src="beforeafter/images/before4.jpg" alt="Antes sin LUT">
+                                </div>
+                                <div class="slider" data-ba-handle></div>
+                            </div>
                         </div>
                     </div>
                 </section>
