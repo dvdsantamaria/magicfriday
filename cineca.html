@@ -58,64 +58,35 @@
             position: absolute;
             top: 0;
             left: var(--ba-position);
-            width: 3px;
+            width: 40px;
             height: 100%;
-            background: #ffffff;
+            background: transparent;
             z-index: 4;
             transform: translateX(-50%);
             cursor: ew-resize;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
         }
 
-        .before-after-container .slider-handle {
+        .before-after-container .slider::before {
+            content: "";
             position: absolute;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #ffffff;
-            top: 50%;
+            top: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-        }
-
-        .before-after-container .slider-arrow {
-            font-size: 18px;
-            color: #111111;
-            opacity: 0.75;
-            transition: opacity 0.3s ease;
-        }
-
-        .before-after-container .slider:hover .slider-arrow {
-            opacity: 1;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
         }
 
         @media (max-width: 768px) {
             .before-after-container {
                 height: clamp(280px, 65vw, 480px);
             }
-
-            .before-after-container .slider-handle {
-                width: 48px;
-                height: 48px;
-            }
         }
 
         @media (max-width: 480px) {
             .before-after-container {
                 height: 320px;
-            }
-
-            .before-after-container .slider-handle {
-                width: 42px;
-                height: 42px;
-            }
-
-            .before-after-container .slider-arrow {
-                font-size: 16px;
             }
         }
     </style>
@@ -621,11 +592,7 @@
                                 <img src="assets/img/before.jpg" alt="Antes sin LUT">
                             </div>
 
-                            <div class="slider" data-ba-handle>
-                                <div class="slider-handle">
-                                    <i class="fas fa-arrows-left-right slider-arrow" aria-hidden="true"></i>
-                                </div>
-                            </div>
+                            <div class="slider" data-ba-handle></div>
                         </div>
                     </div>
                 </section>
