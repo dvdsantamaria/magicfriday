@@ -88,6 +88,13 @@
     --bg-btn: #0a0909;
   }
 }
+
+.price-highlight {
+  font-size: 2em!important;
+  color: var(--theme-color) !important;
+  font-weight: 700;
+}
+
 :root {
   --body-font: "Poppins", sans-serif;
   --heading-font: "Antonio", sans-serif;
@@ -249,6 +256,15 @@ body.thank-page #main_root {
   width: 100%;
   overflow: hidden;
   position: relative;
+}
+.marquee-holder {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+.marquee-holder .container {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .marquee-full .cta-marquee-track {
@@ -2497,7 +2513,7 @@ a:hover, a:active {
 }
 
 .header-project {
-  padding-top: 200px;
+  padding-top: 175px;
 }
 .header-project .box-img {
   height: 70vh;
