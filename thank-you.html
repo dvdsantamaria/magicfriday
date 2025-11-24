@@ -323,56 +323,64 @@
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <!-- Download + redirect logic -->
     <script>
-      (async () => {
-        const HOME_URL = "https://blackfriday.casacafilms.com/";
-        const REDIRECT_DELAY_MS = 15000; // 15 seconds
-
-        const params = new URLSearchParams(location.search);
-        const sessionId = params.get("session_id");
-        const product = params.get("product");
-
-        if (!sessionId || !product) {
-          console.log("Missing session_id or product in URL");
-          setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-          return;
-        }
-
-        let downloadUrl = null;
-
-        try {
-          const res = await fetch("/api/start-download", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sessionId, product })
-          });
-
-          if (!res.ok) throw new Error("start-download failed");
-          const data = await res.json();
-          downloadUrl = data.url;
-        } catch (e) {
-          console.log("Could not prepare download", e);
-          setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-          return;
-        }
-
-        if (downloadUrl) {
-          // Try opening in new tab to avoid interrupting redirect
-          const opened = window.open(downloadUrl, "_blank");
-          if (!opened) {
-            // Fallback if popup is blocked
-            const iframe = document.createElement("iframe");
-            iframe.style.display = "none";
-            iframe.src = downloadUrl;
-            document.body.appendChild(iframe);
+        (async () => {
+          const HOME_URL = "https://blackfriday.casacafilms.com/";
+          const REDIRECT_DELAY_MS = 15000;
+      
+          const params = new URLSearchParams(location.search);
+          const sessionId = params.get("session_id");
+          const product = params.get("product");
+      
+          if (!sessionId || !product) {
+            console.log("Missing session_id or product in URL");
+            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
+            return;
           }
-        }
-
-        // Redirect home after a few seconds
-        setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-      })();
-    </script>
+      
+          let downloadUrl;
+      
+          try {
+            const res = await fetch("/api/start-download", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ sessionId, product })
+            });
+      
+            if (!res.ok) throw new Error("start-download failed");
+            const data = await res.json();
+            downloadUrl = data.url;
+          } catch (e) {
+            console.log("Could not prepare download", e);
+            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
+            return;
+          }
+      
+          if (downloadUrl) {
+            // Create a real link and click it (less popup blocking)
+            const a = document.createElement("a");
+            a.href = downloadUrl;
+            a.rel = "noopener";
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+      
+            // Optional: show a manual button if they need to retry
+            const manual = document.createElement("div");
+            manual.style.marginTop = "20px";
+            manual.innerHTML = `
+              <p>If your download did not start, click here:</p>
+              <a href="${downloadUrl}" class="button" style="display:inline-block;padding:10px 16px;">
+                Download again
+              </a>
+            `;
+            document.body.appendChild(manual);
+          }
+      
+          setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
+        })();
+      </script>
 
 </body>
 </html>
