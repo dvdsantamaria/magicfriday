@@ -201,11 +201,20 @@ body::before {
   animation: grainMove 1s steps(8) infinite;
 }
 
+body.thank-page {
+  position: relative;
+}
+
 body.thank-page::before {
-  content: none !important;
-  display: none !important;
-  opacity: 0 !important;
-  animation: none !important;
+  z-index: 0;
+  mix-blend-mode: normal;
+  opacity: 0.04;
+}
+
+body.thank-page #dsn-scrollbar,
+body.thank-page #main_root {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes grainMove {

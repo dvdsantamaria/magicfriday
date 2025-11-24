@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="v-dark">
+<body class="v-dark thank-page">
 
     <svg width="0" height="0" class="p-absolute hidden">
         <defs>
@@ -170,18 +170,41 @@
                                 </div>
                             </div>
 
-                            <div class="background-section has-border-radius p-20 mt-30 d-flex flex-wrap justify-content-between align-items-center">
-                                <div class="mb-15">
-                                    <span class="sm-title-block text-upper">Real time status</span>
-                                    <h4 class="mt-10 mb-0 heading-color">Preparing files...</h4>
-                                    <p class="mt-5 mb-0">Checking payment and generating a secure link.</p>
+                            <div class="d-grid grid-md-2 grid-sm-1 gap-20 mt-30">
+                                <div class="background-section has-border-radius p-20 d-flex flex-column h-100">
+                                    <span class="sm-title-block text-upper">PowerGrade – CINECA</span>
+                                    <h4 class="mt-10 mb-10 heading-color">One-click grading for Resolve</h4>
+                                    <p class="mb-15">Color correction ready for DaVinci: clean skin, organic contrast, and fast delivery.</p>
+                                    <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex no-padding text-upper mt-auto">
+                                        <a class="button background-main" href="color.html">
+                                            <span class="title-btn p-relative z-index-1" data-animate-text="See PowerGrade">
+                                                <span>See PowerGrade</span>
+                                            </span>
+                                        </a>
+                                        <span class="icon background-main theme-color">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="text-right mb-15">
-                                    <span class="d-block text-upper heading-color">Estimated time</span>
-                                    <span class="title-lg d-block">00:45s</span>
-                                    <span class="background-main heading-color text-upper d-inline-flex" style="padding:6px 18px;border-radius:30px;">
-                                        72% complete
-                                    </span>
+
+                                <div class="background-section has-border-radius p-20 d-flex flex-column h-100">
+                                    <span class="sm-title-block text-upper">Balance SFX Library</span>
+                                    <h4 class="mt-10 mb-10 heading-color">Sound ready to drop</h4>
+                                    <p class="mb-15">Hits, risers, wooshes, and textures to reinforce every cut and trailer.</p>
+                                    <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex no-padding text-upper mt-auto">
+                                        <a class="button background-main" href="sfx.html">
+                                            <span class="title-btn p-relative z-index-1" data-animate-text="See SFX">
+                                                <span>See SFX</span>
+                                            </span>
+                                        </a>
+                                        <span class="icon background-main theme-color">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -322,6 +345,19 @@
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (document.body.classList.contains("thank-page") && window.$effectScroll && $effectScroll.disable) {
+                try {
+                    $effectScroll.disable();
+                } catch (e) {
+                    console.warn("Could not disable effectScroll", e);
+                }
+                document.body.classList.remove("dsn-effect-scroll");
+                document.documentElement.classList.remove("dsn-effect-scroll");
+            }
+        });
+    </script>
 
     <script>
         (async () => {
