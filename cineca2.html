@@ -17,108 +17,6 @@
 
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .before-after-section {
-            width: 100%;
-        }
-
-        .before-after-container {
-            position: relative;
-            width: 100%;
-            height: clamp(320px, 60vw, 620px);
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            --ba-position: 50%;
-            background: #0f0f0f;
-        }
-
-        .before-after-container .img-after,
-        .before-after-container .img-before img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none;
-        }
-
-        .before-after-container .img-before {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 2;
-            clip-path: inset(0 calc(100% - var(--ba-position)) 0 0);
-        }
-
-        .before-after-container .slider {
-            position: absolute;
-            top: 0;
-            left: var(--ba-position);
-            width: 3px;
-            height: 100%;
-            background: #ffffff;
-            z-index: 4;
-            transform: translateX(-50%);
-            cursor: ew-resize;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-        }
-
-        .before-after-container .slider-handle {
-            position: absolute;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #ffffff;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-        }
-
-        .before-after-container .slider-arrow {
-            font-size: 18px;
-            color: #111111;
-            opacity: 0.75;
-            transition: opacity 0.3s ease;
-        }
-
-        .before-after-container .slider:hover .slider-arrow {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .before-after-container {
-                height: clamp(280px, 65vw, 480px);
-            }
-
-            .before-after-container .slider-handle {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .before-after-container {
-                height: 320px;
-            }
-
-            .before-after-container .slider-handle {
-                width: 42px;
-                height: 42px;
-            }
-
-            .before-after-container .slider-arrow {
-                font-size: 16px;
-            }
-        }
-    </style>
 </head>
 
 <body class="v-dark">
@@ -606,30 +504,19 @@
 
                
 
-              
+                <div class="over-hidden ">
+                    <div class="img-box-parallax dsn-animate dsn-effect-down has-popup dsn-active"
+                        data-dsn-grid="move-up">
 
-                <section class="before-after-section section-margin">
-                    <div class="container">
-                        <div class="section-title d-flex flex-column mb-20">
-                            <span class="sm-title-block text-upper">Before / After</span>
-                            <h3 class="title-block text-upper">Instant film look test</h3>
-                        </div>
-                        <div class="before-after-container" data-before-after>
-                            <img class="img-after" src="assets/img/after.jpg" alt="Después con CINECA LUT">
-
-                            <div class="img-before">
-                                <img src="assets/img/before.jpg" alt="Antes sin LUT">
-                            </div>
-
-                            <div class="slider" data-ba-handle>
-                                <div class="slider-handle">
-                                    <i class="fas fa-arrows-left-right slider-arrow" aria-hidden="true"></i>
-                                </div>
-                            </div>
+                        <div class="effect-popup before-z-index h-100" data-src="assets/img/portfolio/project7/6.jpg"
+                            data-caption="Caption #3" data-fancybox="_1" data-cursor="open" data-dsn-overlay="0">
+                            <img class="cover-bg-img has-direction" src="assets/img/portfolio/project7/6.jpg" alt="">
                         </div>
                     </div>
-                </section>
+                </div>
 
+
+               
 
             </div>
 
@@ -801,56 +688,6 @@
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const instances = document.querySelectorAll("[data-before-after]");
-
-            instances.forEach(container => {
-                const handle = container.querySelector("[data-ba-handle]");
-                if (!handle) return;
-
-                let isDragging = false;
-
-                const applyPosition = (percent) => {
-                    const clamped = Math.max(2, Math.min(98, percent));
-                    container.style.setProperty("--ba-position", `${clamped}%`);
-                };
-
-                const getPercentFromClientX = (clientX) => {
-                    const rect = container.getBoundingClientRect();
-                    return ((clientX - rect.left) / rect.width) * 100;
-                };
-
-                const onMove = (event) => {
-                    if (!isDragging) return;
-                    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-                    applyPosition(getPercentFromClientX(clientX));
-                    event.preventDefault();
-                };
-
-                const startDrag = (event) => {
-                    isDragging = true;
-                    onMove(event);
-                    event.preventDefault();
-                };
-
-                const stopDrag = () => {
-                    isDragging = false;
-                };
-
-                applyPosition(50);
-
-                handle.addEventListener("mousedown", startDrag);
-                handle.addEventListener("touchstart", startDrag, { passive: false });
-
-                window.addEventListener("mousemove", onMove, { passive: false });
-                window.addEventListener("touchmove", onMove, { passive: false });
-
-                window.addEventListener("mouseup", stopDrag);
-                window.addEventListener("touchend", stopDrag);
-            });
-        });
-    </script>
 </body>
 
 </html>
