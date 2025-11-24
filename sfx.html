@@ -13,110 +13,58 @@
     <link rel="icon" href="assets/img/logo-32x32.png" sizes="32x32" />
     <link rel="icon" href="assets/img/logo-192x192.png" sizes="192x192" />
 
-    <title>CINECA PRO – Universal Pack</title>
+    <title>Balance SFX Vol. 1 | Casaca Films</title>
 
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .before-after-section {
+        .audio-list {
             width: 100%;
         }
 
-        .before-after-container {
+        .audio-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .audio-thumb {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: url("assets/img/sfx.jpg") center/cover no-repeat;
             position: relative;
-            width: 100%;
-            height: clamp(320px, 60vw, 620px);
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            --ba-position: 50%;
-            background: #0f0f0f;
         }
 
-        .before-after-container .img-after,
-        .before-after-container .img-before img {
+        .audio-thumb button {
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none;
-        }
-
-        .before-after-container .img-before {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 2;
-            clip-path: inset(0 calc(100% - var(--ba-position)) 0 0);
-        }
-
-        .before-after-container .slider {
-            position: absolute;
-            top: 0;
-            left: var(--ba-position);
-            width: 3px;
-            height: 100%;
-            background: #ffffff;
-            z-index: 4;
-            transform: translateX(-50%);
-            cursor: ew-resize;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-        }
-
-        .before-after-container .slider-handle {
-            position: absolute;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #ffffff;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: #fff;
+            color: #1a4fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .before-after-container .slider-arrow {
-            font-size: 18px;
-            color: #111111;
-            opacity: 0.75;
-            transition: opacity 0.3s ease;
+        .audio-thumb button .icon {
+            font-weight: 700;
+            font-size: 16px;
         }
 
-        .before-after-container .slider:hover .slider-arrow {
-            opacity: 1;
+        .audio-wave {
+            width: 100%;
+            height: 70px;
         }
 
-        @media (max-width: 768px) {
-            .before-after-container {
-                height: clamp(280px, 65vw, 480px);
-            }
-
-            .before-after-container .slider-handle {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .before-after-container {
-                height: 320px;
-            }
-
-            .before-after-container .slider-handle {
-                width: 42px;
-                height: 42px;
-            }
-
-            .before-after-container .slider-arrow {
-                font-size: 16px;
-            }
+        .audio-duration {
+            font-weight: 600;
+            color: #4f7fff;
         }
     </style>
 </head>
@@ -412,226 +360,110 @@
 
             <!-- ========== Header ========== -->
             <header class="header-project dsn-header-animation p-relative over-hidden">
-
                 <div class="p-relative container dsn-hero-parallax-title pb-60">
-                    <div class="p-relative d-flex align-items-center w-100  h-100 ">
-
+                    <div class="p-relative d-flex align-items-center w-100 h-100">
                         <div class="box-content w-100 d-flex flex-column z-index-1">
-
-                            <h1 class="title-lg text-upper" data-dsn-ajax="title">CINECA PRO <br> Universal Pack <span class="fw-200">iPhone &amp; Pro Cameras</span></h1>
-
-                            <div class="d-flex justify-content-between align-items-center w-100 mt-30">
-                                <div class="cat p-0">
-                                    <span class="background-section heading-color">$39.99</span>
-                                    <span class="background-section heading-color" style="text-decoration: line-through;"><del>$59.99</del></span>
-                                </div>
-
-                                <div class="item">
-                                    <span class="text-upper">Instant cinematic color. Anywhere.</span>
-                                </div>
-
-                                <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex no-padding text-upper">
-
-                                    <a class="button"
-                                        href="https://buy.stripe.com/bJe9AS6WCbnVbIVeHP0ZW02?prefilled_promo_code=BLACKFRIDAY20"
-                                        target="_blank">
-                                        <span class="title-btn p-relative  z-index-1" data-animate-text="Get the pack">
-                                            <span>Get the pack</span>
-                                        </span>
-                                    </a>
-
-                                    <span class="icon background-section theme-color">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                            <path
-                                                d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z">
-                                            </path>
-                                        </svg>
-                                    </span>
-
-                                </div>
-                            </div>
+                            <span class="sm-title-block text-upper mb-10">Immersive cinematic sound</span>
+                            <h1 class="title-lg text-upper" data-dsn-ajax="title">Balance SFX / Vol. 1</h1>
                         </div>
-
-
                     </div>
                 </div>
 
                 <div class="pl-30 pr-30">
                     <div class="box-img p-relative before-z-index has-border-radius" data-overlay="4" data-dsn-grid="move-up">
-                        <img class="cover-bg-img has-border-radius" src="assets/img/video-cover.jpg" alt="">
+                        <img class="cover-bg-img has-border-radius" src="assets/img/sfx.jpg" alt="Balance SFX cover">
                     </div>
                 </div>
-
             </header>
             <!-- ========== End Header ========== -->
 
-
-
-
-
-
-
-
             <div id="page_wrapper" class="wrapper">
-                <div class="project-info section-margin">
+                <section class="section-margin">
                     <div class="container">
-                        <div class="d-grid c-width">
-                            <div class="info">
-                                <h6 class="mb-10">INFO</h6>
-                                <h3 class="title-block text-upper">CINECA PRO – Universal Pack</h3>
-                                <p class="mt-15">A handcrafted .cube LUT pack created to give your videos a cinematic, vibrant, skin-safe film look in just one click. No complex grading—just clean, powerful color with a cinematic finish.</p>
-                                <p class="mt-10">Designed for iPhone (Apple Log / Apple Log2), Blackmagic Camera app users, and filmmakers using Sony S Log (FX3, FX30 and similar). Includes versions for standard Rec.709 from iPhone, Android and mirrorless.</p>
+                        <div class="d-grid grid-md-2 gap-40">
+                            <div>
+                                <h2 class="title-block text-upper">Balance SFX Vol. 1</h2>
+                                <p class="mt-15">A drag and drop SFX pack that elevates any project with immersive, cinematic sound — seamlessly enhancing your visuals.</p>
+                            </div>
+                            <div>
+                                <h4 class="sm-title-block text-upper mb-10">What you get</h4>
+                                <p class="mb-0">Inside the pack you will find more than 500 cinematic SFX.</p>
+                            </div>
+                        </div>
 
-                                <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex text-upper mt-20">
-
-                                    <a class="button background-main" href="#" target="_blank">
-                                        <span class="title-btn p-relative  z-index-1" data-animate-text="Get the pack">
-                                            <span>Get the pack</span>
-                                        </span>
-                                    </a>
-
-                                    <span class="icon background-main theme-color">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                            <path
-                                                d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z">
-                                            </path>
+                        <div class="audio-list mt-40">
+                            <div class="d-grid grid-md-3 grid-sm-1 gap-20">
+                                <div class="audio-card background-section has-border-radius p-20 d-flex flex-column align-items-start gap-15">
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <div class="audio-thumb">
+                                            <button class="audio-play" aria-label="Play Whoosh Bass" data-audio="#audio-whoosh-bass">
+                                                <span class="icon">▶</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-5">Whoosh Bass</h5>
+                                            <p class="mb-0 text-upper">Whoosh Pack</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <svg class="audio-wave" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <polyline points="0,30 10,30 20,25 30,35 40,15 50,45 60,20 70,40 80,10 90,50 100,30 110,35 120,25 130,30 140,45 150,15 160,30 170,25 180,30 190,32 200,28 210,30 220,30" stroke="#4f7fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                    </span>
-
-                                </div>
-                            </div>
-
-                            <div class="d-grid grid-md-2">
-                                <div class="p-20">
-                                    <h6 class="sm-title-block text-upper mb-20 pb-15 border-bottom">Highlights</h6>
-                                    <div class="list">
-                                        <span class="background-section">Instant cinematic color</span>
-                                        <span class="background-section">Skin-safe film look</span>
-                                        <span class="background-section">One-click workflow</span>
+                                        <span class="audio-duration">0:02</span>
                                     </div>
+                                    <audio id="audio-whoosh-bass" preload="none" src="assets/audio/demo1.wav"></audio>
                                 </div>
 
-                                <div class="info-box background-section has-border-radius p-20">
-                                    <h6 class="sm-title-block text-upper mb-20 pb-15 border-bottom">Works with</h6>
-                                    <div class="d-flex flex-column">
-                                        <span>Premiere Pro (Lumetri / Look)</span>
-                                        <span>DaVinci Resolve (LUT panel)</span>
-                                        <span>Final Cut Pro (Custom LUT)</span>
-                                        <span>CapCut, VN, LumaFusion</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div id="page_wrapper" class="wrapper">
-
-                <div class="box-move section-padding background-section">
-                    <div class="container">
-                        <div class="d-grid grid-lg-2">
-
-                            <!-- <div class="text pinned-scroll p-relative" data-dsn-option='{"end":"650"}'>
-                                <div class=" pinned-element">
-                                    <span class="sub-heading mb-15">• WHAT’S INSIDE</span>
-                                    <h3 class="title text-upper mb-30">CINECA PRO PACK</h3>
-
-                                    <div class="info">
-                                        <div class="info-item d-flex align-items-center border-bottom">
-                                            <span class="date">Rec.709</span>
-                                            <h6 class="text-upper">CINECAPRO_FilmLook_Rec709.cube</h6>
-
+                                <div class="audio-card background-section has-border-radius p-20 d-flex flex-column align-items-start gap-15">
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <div class="audio-thumb">
+                                            <button class="audio-play" aria-label="Play Whoosh Deep" data-audio="#audio-whoosh-deep">
+                                                <span class="icon">▶</span>
+                                            </button>
                                         </div>
-
-                                        <div class="info-item d-flex align-items-center border-bottom">
-                                            <span class="date">Sony S Log</span>
-                                            <h6 class="text-upper">SLOG / SLOG2 / SLOG3 versions</h6>
+                                        <div>
+                                            <h5 class="mb-5">Whoosh Deep</h5>
+                                            <p class="mb-0 text-upper">Whoosh Pack</p>
                                         </div>
-
-                                        <div class="info-item d-flex align-items-center border-bottom">
-                                            <span class="date">Apple Log</span>
-                                            <h6 class="text-upper">Apple Log &amp; Apple Log2</h6>
-                                        </div>
-
-                                        <div class="info-item d-flex align-items-center border-bottom">
-                                            <span class="date">Guide</span>
-                                            <h6 class="text-upper">Quick PDF: CapCut, Premiere, Resolve, FCP, LumaFusion</h6>
-                                        </div>
-
                                     </div>
-
-                                    <p class="mt-20">Ideal if you want cinematic color without excuses—from iPhone 11 to iPhone 17 Pro, Blackmagic Camera app, or Sony FX3 in S Log3—this pack adapts beautifully. Built for speed, powered by passion, ready to transform your footage.</p>
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <svg class="audio-wave" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <polyline points="0,30 10,30 20,22 30,38 40,12 50,48 60,18 70,42 80,8 90,52 100,30 110,32 120,28 130,34 140,40 150,20 160,30 170,26 180,30 190,32 200,28 210,30 220,30" stroke="#4f7fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="audio-duration">0:03</span>
+                                    </div>
+                                    <audio id="audio-whoosh-deep" preload="none" src="assets/audio/demo2.wav"></audio>
                                 </div>
-                            </div>
 
-                            <div class="box-img">
-                                <div class="d-grid">
-                                    <div class="img-item h-v-70">
-                                        <img class="cover-bg-img" src="assets/img/portfolio/project7/10.jpg" alt="">
+                                <div class="audio-card background-section has-border-radius p-20 d-flex flex-column align-items-start gap-15">
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <div class="audio-thumb">
+                                            <button class="audio-play" aria-label="Play Whoosh Wind" data-audio="#audio-whoosh-wind">
+                                                <span class="icon">▶</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-5">Whoosh Wind</h5>
+                                            <p class="mb-0 text-upper">Whoosh Pack</p>
+                                        </div>
                                     </div>
-
-                                    <div class="img-item h-v-70">
-                                        <img class="cover-bg-img" src="assets/img/portfolio/project7/11.jpg" alt="">
+                                    <div class="d-flex align-items-center gap-15 w-100">
+                                        <svg class="audio-wave" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <polyline points="0,30 10,30 20,24 30,36 40,18 50,42 60,16 70,44 80,12 90,48 100,32 110,28 120,34 130,26 140,38 150,22 160,30 170,27 180,30 190,31 200,29 210,30 220,30" stroke="#4f7fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="audio-duration">0:02</span>
                                     </div>
-
-                                    <div class="img-item h-v-70">
-                                        <img class="cover-bg-img" src="assets/img/portfolio/project7/12.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-
-
-               
-
-              
-
-                <section class="before-after-section section-margin">
-                    <div class="container">
-                        <div class="section-title d-flex flex-column mb-20">
-                            <span class="sm-title-block text-upper">Before / After</span>
-                            <h3 class="title-block text-upper">Instant film look test</h3>
-                        </div>
-                        <div class="before-after-container" data-before-after>
-                            <img class="img-after" src="assets/img/after.jpg" alt="Después con CINECA LUT">
-
-                            <div class="img-before">
-                                <img src="assets/img/before.jpg" alt="Antes sin LUT">
-                            </div>
-
-                            <div class="slider" data-ba-handle>
-                                <div class="slider-handle">
-                                    <i class="fas fa-arrows-left-right slider-arrow" aria-hidden="true"></i>
+                                    <audio id="audio-whoosh-wind" preload="none" src="assets/audio/demo3.wav"></audio>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-
             </div>
+
+
+
+        
 
             <!-- <section class="next-projects p-relative section-padding d-flex flex-column justify-content-center">
                 <div class="box-img h-100 w-100 h-100 p-absolute top-0 right-0 before-z-index" data-overlay="7"
@@ -802,52 +634,46 @@
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const instances = document.querySelectorAll("[data-before-after]");
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll(".audio-play");
+            const audios = Array.from(document.querySelectorAll(".audio-card audio"));
 
-            instances.forEach(container => {
-                const handle = container.querySelector("[data-ba-handle]");
-                if (!handle) return;
+            const resetIcons = () => buttons.forEach(btn => {
+                const icon = btn.querySelector(".icon");
+                if (icon) icon.textContent = "▶";
+            });
 
-                let isDragging = false;
+            buttons.forEach(btn => {
+                const audio = document.querySelector(btn.dataset.audio);
+                if (!audio) return;
 
-                const applyPosition = (percent) => {
-                    const clamped = Math.max(2, Math.min(98, percent));
-                    container.style.setProperty("--ba-position", `${clamped}%`);
-                };
+                btn.addEventListener("click", () => {
+                    if (audio.paused) {
+                        audios.forEach(a => {
+                            if (a !== audio) {
+                                a.pause();
+                                a.currentTime = 0;
+                            }
+                        });
+                        resetIcons();
+                        audio.play();
+                        const icon = btn.querySelector(".icon");
+                        if (icon) icon.textContent = "❚❚";
+                    } else {
+                        audio.pause();
+                    }
+                });
 
-                const getPercentFromClientX = (clientX) => {
-                    const rect = container.getBoundingClientRect();
-                    return ((clientX - rect.left) / rect.width) * 100;
-                };
+                audio.addEventListener("pause", () => {
+                    const icon = btn.querySelector(".icon");
+                    if (icon) icon.textContent = "▶";
+                });
 
-                const onMove = (event) => {
-                    if (!isDragging) return;
-                    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-                    applyPosition(getPercentFromClientX(clientX));
-                    event.preventDefault();
-                };
-
-                const startDrag = (event) => {
-                    isDragging = true;
-                    onMove(event);
-                    event.preventDefault();
-                };
-
-                const stopDrag = () => {
-                    isDragging = false;
-                };
-
-                applyPosition(50);
-
-                handle.addEventListener("mousedown", startDrag);
-                handle.addEventListener("touchstart", startDrag, { passive: false });
-
-                window.addEventListener("mousemove", onMove, { passive: false });
-                window.addEventListener("touchmove", onMove, { passive: false });
-
-                window.addEventListener("mouseup", stopDrag);
-                window.addEventListener("touchend", stopDrag);
+                audio.addEventListener("ended", () => {
+                    audio.currentTime = 0;
+                    const icon = btn.querySelector(".icon");
+                    if (icon) icon.textContent = "▶";
+                });
             });
         });
     </script>
