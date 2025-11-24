@@ -228,29 +228,40 @@ body::before {
   z-index: 99;
 }
 
-/* Ensure CTA marquee text spans full container without clipping */
+/* CTA marquee spans the grid width on a single line */
 .marquee-full {
-  overflow: visible !important;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-full .cta-marquee-track {
+  display: flex;
+  width: 200%;
+  animation: ctaMarquee var(--cta-marquee-duration, 12s) linear infinite;
+}
+
+.marquee-full .cta-marquee-group {
+  flex: 0 0 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 }
 
-.marquee-full .js-marquee-wrapper,
-.marquee-full .js-marquee {
-  width: 100% !important;
-  transform: none !important;
-  animation: none !important;
+.cta-marquee-text {
+  margin: 0;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  white-space: nowrap;
 }
 
-.marquee-full .js-marquee {
-  margin-right: 0 !important;
-  float: none !important;
-  display: flex;
-  justify-content: center;
-}
-
-.marquee-full .js-marquee:not(:first-child) {
-  display: none !important;
+@keyframes ctaMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 body:not(.dsn-cursor-effect) #dsn_cursor, body:not(.dsn-cursor-effect) #dsn_cursor_inner {
   display: none;
