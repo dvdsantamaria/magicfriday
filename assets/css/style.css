@@ -7620,6 +7620,5 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
   height: 26px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   display: block;
 }
