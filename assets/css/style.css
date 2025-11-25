@@ -41,7 +41,7 @@
 :root, :root .v-light, :root .v-light-head {
   --bg-color: #F3F3F3;
   --assistant-color: #E9E9E9;
-  --theme-color: #ffe300;
+  --theme-color: #4A5DF6;
   --theme-color-font: #fff;
   --font-color: #5c5c5c;
   --heading-color: #000;
@@ -64,7 +64,7 @@
 :root .v-dark, :root .v-dark-head {
   --bg-color: #000;
   --assistant-color: #171717;
-  --theme-color: #ffe300;
+  --theme-color: #4A5DF6;
   --font-color: #d9d9d9;
   --heading-color: #fff;
   --border-color: #373737;
@@ -78,7 +78,7 @@
   .v-dark-head-mobile {
     --bg-color: #111;
     --assistant-color: #171717;
-    --theme-color: #ffe300;
+    --theme-color: #4A5DF6;
     --font-color: #d9d9d9;
     --heading-color: #fff;
     --border-color: #373737;
