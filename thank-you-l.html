@@ -129,13 +129,11 @@
 
                         <div class="box-content w-100 d-flex flex-column z-index-1">
                             <span class="sm-title-block text-upper mb-10">Casaca Films / Download Hub</span>
-                            <h1 class="title-lg text-upper" data-dsn-ajax="title">
-                                Thanks for your purchase!
-                                <span class="fw-200 d-block">Your download is starting.</span>
+                            <h1 class="title-md text-upper" data-dsn-ajax="title" style="color: #4A5DF6;;">
+                                Thanks for your purchase
                             </h1>
-                            <p class="max-w570 mt-20">
-                                We are preparing your files and sending a secure download link to the email you used at checkout.
-                                Stay on this page while we finish packing everything.
+                            <p class="max-w570 mt-30">
+                                Your download is starting.
                             </p>
 
                             <div class="d-flex flex-wrap align-items-center mt-30">
@@ -360,49 +358,54 @@
     </script>
 
     <script>
-        (async () => {
-          const HOME_URL = "https://blackfriday.casacafilms.com/";
-          const REDIRECT_DELAY_MS = 15000;
-        
-          const params = new URLSearchParams(location.search);
-          const product = params.get("product");
-        
-          if (!product) {
-            console.log("Missing product in URL");
-            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-            return;
-          }
-        
-          let downloadUrl;
-        
-          try {
-            const res = await fetch("/api/start-download", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ product })
-            });
-        
-            if (!res.ok) throw new Error("start-download failed");
-            const data = await res.json();
-            downloadUrl = data.url;
-          } catch (e) {
-            console.log("Could not prepare download", e);
-            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-            return;
-          }
-        
-          if (downloadUrl) {
-            const a = document.createElement("a");
-            a.href = downloadUrl;
-            a.rel = "noopener";
-            a.style.display = "none";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-          }
-        
-          setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-        })();
+       (async () => {
+    const params = new URLSearchParams(location.search);
+    const product = params.get("product");
+
+    if (!product) {
+      console.log("Missing product in URL");
+      return; // stay here
+    }
+
+    let downloadUrl;
+
+    try {
+      const res = await fetch("/api/start-download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product })
+      });
+
+      if (!res.ok) throw new Error("start-download failed");
+      const data = await res.json();
+      downloadUrl = data.url;
+    } catch (e) {
+      console.log("Could not prepare download", e);
+      return; // stay here
+    }
+
+    if (downloadUrl) {
+      // Trigger download
+      const a = document.createElement("a");
+      a.href = downloadUrl;
+      a.rel = "noopener";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // Optional manual retry link
+      const manual = document.createElement("div");
+      manual.style.marginTop = "20px";
+      manual.innerHTML = `
+        <p>If your download did not start, click here:</p>
+        <a href="${downloadUrl}" class="button" style="display:inline-block;padding:10px 16px;">
+          Download again
+        </a>
+      `;
+      document.body.appendChild(manual);
+    }
+  })();
         </script>
 
 </body>
