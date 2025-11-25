@@ -7607,3 +7607,19 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
   outline: none;
   box-shadow: none;
 }
+
+/* Software icons row for product pages */
+.software-stack {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.software-stack .software-icon {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  display: block;
+}
