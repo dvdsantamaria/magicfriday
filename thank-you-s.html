@@ -366,49 +366,54 @@
     </script>
 
     <script>
-        (async () => {
-          const HOME_URL = "https://blackfriday.casacafilms.com/";
-          const REDIRECT_DELAY_MS = 15000;
-        
-          const params = new URLSearchParams(location.search);
-          const product = params.get("product");
-        
-          if (!product) {
-            console.log("Missing product in URL");
-            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-            return;
-          }
-        
-          let downloadUrl;
-        
-          try {
-            const res = await fetch("/api/start-download", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ product })
-            });
-        
-            if (!res.ok) throw new Error("start-download failed");
-            const data = await res.json();
-            downloadUrl = data.url;
-          } catch (e) {
-            console.log("Could not prepare download", e);
-            setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-            return;
-          }
-        
-          if (downloadUrl) {
-            const a = document.createElement("a");
-            a.href = downloadUrl;
-            a.rel = "noopener";
-            a.style.display = "none";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-          }
-        
-          setTimeout(() => location.href = HOME_URL, REDIRECT_DELAY_MS);
-        })();
+       (async () => {
+    const params = new URLSearchParams(location.search);
+    const product = params.get("product");
+
+    if (!product) {
+      console.log("Missing product in URL");
+      return; // stay here
+    }
+
+    let downloadUrl;
+
+    try {
+      const res = await fetch("/api/start-download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product })
+      });
+
+      if (!res.ok) throw new Error("start-download failed");
+      const data = await res.json();
+      downloadUrl = data.url;
+    } catch (e) {
+      console.log("Could not prepare download", e);
+      return; // stay here
+    }
+
+    if (downloadUrl) {
+      // Trigger download
+      const a = document.createElement("a");
+      a.href = downloadUrl;
+      a.rel = "noopener";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // Optional manual retry link
+      const manual = document.createElement("div");
+      manual.style.marginTop = "20px";
+      manual.innerHTML = `
+        <p>If your download did not start, click here:</p>
+        <a href="${downloadUrl}" class="button" style="display:inline-block;padding:10px 16px;">
+          Download again
+        </a>
+      `;
+      document.body.appendChild(manual);
+    }
+  })();
         </script>
 
 </body>

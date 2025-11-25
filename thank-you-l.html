@@ -343,6 +343,16 @@
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/plugins/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
+
+    <script>
+        // Disable Lenis smooth scroll on thank-you to avoid opacity artifacts while keeping other custom.js behaviors.
+        if (window.dsnParam && dsnParam.scrollbar) {
+            dsnParam.scrollbar.smooth = false;
+            dsnParam.scrollbar.smoothTouch = false;
+        }
+    </script>
+
+    
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             if (document.body.classList.contains("thank-page") && window.$effectScroll && $effectScroll.disable) {
