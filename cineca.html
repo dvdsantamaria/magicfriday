@@ -107,6 +107,31 @@
             right: 18px;
         }
 
+        .hero-price {
+            order: 3;
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-tagline {
+            order: 1;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-cta {
+            order: 2;
+            margin-left: 30px;
+        }
+
+        .icon-rotate-left svg {
+            transform: scaleX(-1);
+        }
+
 
         @media (max-width: 768px) {
             .before-after-container {
@@ -426,33 +451,31 @@
                             <h1 class="title-lg text-upper" data-dsn-ajax="title">CINECA PRO <br> Universal Pack <span class="fw-200">iPhone &amp; Pro Cameras</span></h1>
 
                             <div class="d-flex justify-content-between align-items-center w-100 mt-30">
-                                <div class="cat p-0">
-                                    <span class="background-section heading-color price-highlight">$39.99</span>
-                                    <span class="background-section heading-color" style="text-decoration: line-through;"><del>$59.99</del></span>
-                                </div>
-
-                                <div class="item">
+                                <div class="item hero-tagline">
                                     <span class="text-upper">Instant cinematic color. Anywhere.</span>
                                 </div>
 
-                                <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex no-padding text-upper">
+                                <div class="dsn-btn dsn-btn-shape d-inline-flex d-flex no-padding text-upper hero-cta">
 
-                                    <a class="button"
-                                        href="https://buy.stripe.com/bJe9AS6WCbnVbIVeHP0ZW02?prefilled_promo_code=BLACKFRIDAY20"
-                                        target="_blank">
-                                        <span class="title-btn p-relative  z-index-1" data-animate-text="Get the pack">
-                                            <span>Get the pack</span>
+                                    <a class="button hero-back-link"
+                                        href="index.html" data-home="index.html">
+                                        <span class="title-btn p-relative  z-index-1" data-animate-text="Back">
+                                            <span>Back</span>
+                                        </span>
+                                        <span class="icon background-section theme-color icon-rotate-left">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path
+                                                    d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z">
+                                                </path>
+                                            </svg>
                                         </span>
                                     </a>
 
-                                    <span class="icon background-section theme-color">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                            <path
-                                                d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z">
-                                            </path>
-                                        </svg>
-                                    </span>
+                                </div>
 
+                                <div class="cat p-0 hero-price">
+                                    <span class="background-section heading-color price-highlight">$39.99</span>
+                                    <span class="background-section heading-color" style="text-decoration: line-through;"><del>$59.99</del></span>
                                 </div>
                             </div>
                         </div>
@@ -882,6 +905,31 @@
 
                 window.addEventListener("mouseup", stopDrag);
                 window.addEventListener("touchend", stopDrag);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const backLink = document.querySelector(".hero-back-link");
+            if (!backLink) return;
+            backLink.addEventListener("click", (event) => {
+                const homeHref = backLink.dataset.home || backLink.getAttribute("href") || "/";
+                const ref = document.referrer;
+                const hasHistory = window.history.length > 1;
+                const sameOrigin = (() => {
+                    try {
+                        return ref && new URL(ref).origin === window.location.origin;
+                    } catch (e) {
+                        return false;
+                    }
+                })();
+
+                if (sameOrigin || hasHistory) {
+                    event.preventDefault();
+                    window.history.back();
+                } else {
+                    backLink.setAttribute("href", homeHref);
+                }
             });
         });
     </script>
