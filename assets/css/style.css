@@ -6211,15 +6211,22 @@ ul.intro-project-list li h5.title-list-project + p.description-list-project {
   overflow: visible;
 }
 .dsn-testimonials.testimonials-small:not(.full-testimonials) .testimonials-inner {
-  max-width: 400px;
+  max-width: 520px;
+  overflow: visible;
 }
 @media only screen and (max-width: 767px) {
   .dsn-testimonials.testimonials-small:not(.full-testimonials) .testimonials-inner {
     max-width: 100%;
   }
 }
+.dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item {
+  padding: 25px 30px;
+  min-height: 220px;
+  display: flex;
+}
 .dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item .content {
-  padding: 30px;
+  padding: 0;
+  width: 100%;
 }
 .dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item .content .rating svg {
   width: 16px;
