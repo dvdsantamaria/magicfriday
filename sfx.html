@@ -66,6 +66,69 @@
             font-weight: 600;
             color: #4f7fff;
         }
+
+        .hero-bar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #050505;
+            border-radius: 60px;
+            padding: 15px 28px;
+            margin-top: 35px;
+            width: 100%;
+        }
+
+        .hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .hero-back-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #4f7fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-tagline {
+            flex: 1;
+            text-align: center;
+            letter-spacing: 0.28em;
+            font-size: 12px;
+        }
+
+        .hero-price {
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price-pill {
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-weight: 700;
+        }
+
+        .price-pill.old {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            background: transparent;
+            text-decoration: line-through;
+        }
+
+        .price-pill.new {
+            background: #ffe300;
+            color: #111 !important;
+        }
     </style>
 </head>
 
@@ -377,7 +440,7 @@
                                     <span class="hero-back-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="18">
                                             <path
-                                                d="M56 96h-24v288h48V177.9L303 401l17 17 33.9-34-17-17-223-223H320V96H56z">
+                                                d="M56 96h-24v288h48V177.9L303 401l17 17 33.9-34-17-17-223-223H320V96H56z" transform="rotate(-45 192 256)">
                                             </path>
                                         </svg>
                                     </span>
@@ -387,7 +450,7 @@
                                 <span class="hero-tagline text-upper">Immersive cinematic sound</span>
 
                                 <div class="hero-price">
-                                    <span class="price-pill old">$19.99</span>
+                                    <span class="price-pill old">$24.99</span>
                                     <span class="price-pill new price-highlight">$19.99</span>
                                 </div>
                             </div>
@@ -720,6 +783,31 @@
                     const icon = btn.querySelector(".icon");
                     if (icon) icon.textContent = "▶";
                 });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const backLink = document.querySelector(".hero-back-link");
+            if (!backLink) return;
+            backLink.addEventListener("click", (event) => {
+                const homeHref = backLink.dataset.home || backLink.getAttribute("href") || "/";
+                const ref = document.referrer;
+                const hasHistory = window.history.length > 1;
+                const sameOrigin = (() => {
+                    try {
+                        return ref && new URL(ref).origin === window.location.origin;
+                    } catch (e) {
+                        return false;
+                    }
+                })();
+
+                if (sameOrigin && hasHistory) {
+                    event.preventDefault();
+                    window.history.back();
+                } else {
+                    backLink.setAttribute("href", homeHref);
+                }
             });
         });
     </script>
