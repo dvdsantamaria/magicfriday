@@ -6217,6 +6217,11 @@ ul.intro-project-list li h5.title-list-project + p.description-list-project {
 @media only screen and (max-width: 767px) {
   .dsn-testimonials.testimonials-small:not(.full-testimonials) .testimonials-inner {
     max-width: 100%;
+    overflow: hidden;
+  }
+  .dsn-testimonials.testimonials-small:not(.full-testimonials) .testimonials-inner .swiper,
+  .dsn-testimonials.testimonials-small:not(.full-testimonials) .testimonials-inner .swiper-container {
+    overflow: hidden;
   }
 }
 .dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item {
