@@ -6226,7 +6226,7 @@ ul.intro-project-list li h5.title-list-project + p.description-list-project {
 }
 .dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item {
   padding: 25px 30px;
-  min-height: 220px;
+  min-height: auto;
   display: flex;
 }
 .dsn-testimonials.testimonials-small .testimonials-inner .testimonal-item .content {

@@ -1220,13 +1220,14 @@
             let maxHeight = 0;
             slides.forEach(slide => {
                 slide.style.height = "auto";
+                slide.style.removeProperty("min-height");
                 const h = slide.getBoundingClientRect().height;
                 maxHeight = Math.max(maxHeight, h);
             });
             if (maxHeight > 0) {
                 const inner = document.querySelector(".dsn-testimonials .testimonials-inner");
                 if (inner) inner.style.minHeight = `${maxHeight}px`;
-                slides.forEach(slide => slide.style.minHeight = `${maxHeight}px`);
+                container.style.minHeight = `${maxHeight}px`;
             }
         });
     </script>
