@@ -3989,6 +3989,16 @@ a:hover, a:active {
   transform: scaleX(1);
   opacity: 1;
 }
+@media only screen and (max-width: 767px) {
+  .flexibly-hover:hover .grid-item .content,
+  .flexibly-hover .grid-item:hover .content {
+    transform: none;
+    opacity: 1;
+  }
+  .flexibly-hover .grid-item .content {
+    transition: none;
+  }
+}
 
 .work-massonary .dsn-posts {
   display: flex;
