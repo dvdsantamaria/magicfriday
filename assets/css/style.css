@@ -2884,10 +2884,10 @@ a:hover, a:active {
 }
 
 .header-sm .title-lg {
-  font-size: 240px;
+  font-size: clamp(70px, 11vw, 150px);
   font-weight: 600;
-  line-height: 240px;
-  transform: scale3d(1.1, 1, 1);
+  line-height: 0.95;
+  transform: none;
 }
 .header-sm .icons {
   display: flex;
@@ -7634,4 +7634,56 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
 .software-stack .software-icon {
   object-fit: contain;
   display: block;
+}
+
+/* Announcement bar for seasonal messaging */
+body.has-announcement-bar {
+  --announcement-bar-offset: clamp(48px, 5vw, 70px);
+}
+
+.announcement-bar {
+  background-color: #c8aa6e;
+  color: #050505;
+  text-align: center;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--announcement-bar-offset, 60px);
+  padding: 0 1.25rem;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
+}
+
+body.has-announcement-bar .site-header {
+  top: calc(var(--announcement-bar-offset, 60px) + 30px);
+}
+
+body.has-announcement-bar #dsn_header.h-100-v {
+  min-height: calc(100vh - var(--announcement-bar-offset, 60px));
+  height: calc(100vh - var(--announcement-bar-offset, 60px));
+}
+
+body.has-announcement-bar #dsn_header .footer-head {
+  padding-bottom: clamp(20px, 3vw, 40px);
+}
+
+@media only screen and (max-width: 767px) {
+  .announcement-bar {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0 1rem;
+  }
+  body.has-announcement-bar .site-header {
+    top: calc(var(--announcement-bar-offset, 60px) + 15px);
+  }
+}
+
+.announcement-bar span {
+  display: inline-block;
 }
