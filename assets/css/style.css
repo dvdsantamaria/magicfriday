@@ -2889,6 +2889,15 @@ a:hover, a:active {
   line-height: 0.95;
   transform: none;
 }
+@media only screen and (max-width: 575px) {
+  .header-sm .title-lg {
+    line-height: 1.45;
+    letter-spacing: 0.1em;
+  }
+  .header-sm .title-lg + .title-lg {
+    margin-top: 0.45em;
+  }
+}
 .header-sm .icons {
   display: flex;
   align-items: center;
